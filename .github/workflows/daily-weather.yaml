@@ -1,8 +1,8 @@
-name: Daily Weather Fetch
+name: Daily Weather
 
 on:
   schedule:
-    - cron: "0 0 * * *" # 北京 08:00
+    - cron: "0 0 * * *"
   workflow_dispatch:
 
 permissions:
@@ -12,31 +12,28 @@ jobs:
   append-raw:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      # 如果仓库里还没有 weather.json，先初始化空数组
-      - name: Init JSON array if missing
+      - name: Init JSON
         run: |
           [ -f weather.json ] || echo '[]' > weather.json
 
-      # 拉取完整响应并追加到数组
-      - name: Fetch raw weather & append
+      - name: Fetch Weather Data
         env:
           KEY: ${{ secrets.OPEN_WEATHER_MAP_KEY }}
         run: |
-          curl -s "https://api.openweathermap.org/data/2.5/weather?q=Amoy&appid=${KEY}&units=metric" \
-          | jq --slurpfile arr weather.json '$arr + [.] ' > tmp.json
+          old=$(cat weather.json)
+          new=$(curl -s "https://api.openweathermap.org/data/2.5/weather?q=Amoy&appid=${KEY}&units=metric")
+          jq --argjson n "$new" '. + [$n]' <<< "$old" > tmp.json
           mv tmp.json weather.json
 
-      # 提交
       - name: Commit & push
         run: |
           git config --local user.name  "DoubledConG"
           git config --local user.email "992196871@qq.com"
           git add weather.json
           if ! git diff --cached --quiet; then
-            git commit -m "🌤 Update Weather $(date -I)"
+            git commit -m "feat: 🌤 Update Weather $(date -I)"
             git push
           else
             echo "无变化，跳过提交"

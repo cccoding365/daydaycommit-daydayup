@@ -1,0 +1,50 @@
+[
+  {
+    "coord": {
+      "lon": 118.0819,
+      "lat": 24.4798
+    },
+    "weather": [
+      {
+        "id": 520,
+        "main": "Rain",
+        "description": "light intensity shower rain",
+        "icon": "09d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 26.03,
+      "feels_like": 26.03,
+      "temp_min": 26.03,
+      "temp_max": 26.03,
+      "pressure": 1007,
+      "humidity": 94,
+      "sea_level": 1007,
+      "grnd_level": 1004
+    },
+    "visibility": 9000,
+    "wind": {
+      "speed": 3,
+      "deg": 100
+    },
+    "rain": {
+      "1h": 0.15
+    },
+    "clouds": {
+      "all": 100
+    },
+    "dt": 1758680625,
+    "sys": {
+      "type": 1,
+      "id": 9649,
+      "country": "CN",
+      "sunrise": 1758664613,
+      "sunset": 1758708163
+    },
+    "timezone": 28800,
+    "id": 1790645,
+    "name": "Amoy",
+    "cod": 200
+  }
+]

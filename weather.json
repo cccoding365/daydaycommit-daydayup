@@ -13087,5 +13087,51 @@
     "id": 1790645,
     "name": "Amoy",
     "cod": 200
+  },
+  {
+    "coord": {
+      "lon": 118.0819,
+      "lat": 24.4798
+    },
+    "weather": [
+      {
+        "id": 804,
+        "main": "Clouds",
+        "description": "overcast clouds",
+        "icon": "04d"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 31.25,
+      "feels_like": 38.25,
+      "temp_min": 31.25,
+      "temp_max": 31.25,
+      "pressure": 1005,
+      "humidity": 79,
+      "sea_level": 1005,
+      "grnd_level": 1002
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 3.43,
+      "deg": 137,
+      "gust": 3.84
+    },
+    "clouds": {
+      "all": 100
+    },
+    "dt": 1783914661,
+    "sys": {
+      "type": 2,
+      "id": 2041570,
+      "country": "CN",
+      "sunrise": 1783891619,
+      "sunset": 1783940358
+    },
+    "timezone": 28800,
+    "id": 1790645,
+    "name": "Amoy",
+    "cod": 200
   }
 ]
